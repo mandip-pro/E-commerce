@@ -1,0 +1,164 @@
+import React ,{useState}from 'react'
+import toast,{Toaster} from 'react-hot-toast';
+import "./ProductCreate.css"
+
+function ProductCreate() {
+  const token=localStorage.getItem("admin")
+  const [productData, setProductData] = useState({
+    name:"",
+    description: "",
+    old_price: "",
+    new_price:"",
+    category:"",
+
+  });
+  const [image,setImage]=useState("")
+  const handlesubmit=async(e)=>{
+    e.preventDefault()
+    try{
+      const data=new FormData()
+      data.append('name',productData.name)
+      data.append('description',productData.description)
+      data.append('old_price',productData.old_price)
+      data.append('new_price',productData.new_price)
+      data.append('category',productData.category)
+      data.append('image',image)
+      
+      let responce=await fetch("http://127.0.0.1:3000/api/product",{
+        method:"post",
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+      body:(data)
+    })
+    responce=await responce.json()
+    console.log(responce)
+    if(responce.state){
+      toast.success(responce.message)
+    }else{
+      toast.error(responce.message)
+    }
+    }catch(err){
+      console.log(err)
+    }
+  }
+  const handleImageChange=async(e)=>{
+    const file=e.target.files[0]
+    console.log(file)
+      setImage(file)
+
+  }
+  const handleChange=async(e)=>{
+    let inputData = e.target.value;
+    let inputName = e.target.name;
+    setProductData((prev) => {
+      return {
+        ...prev,
+        [inputName]: inputData,
+      };
+    });
+  }
+  
+  return (
+    <div>
+       <div className="body">
+        <div className="login-box">
+          <div className="login-header">
+            <header>Create Product</header>
+          </div>
+          <div
+            className="input-box"
+           
+          >
+            <input
+              type="text"
+              placeholder="enter-name"
+              name="name"
+              required
+              onChange={handleChange}
+              className="input-field"
+              autoComplete="off"
+            ></input>
+          </div>
+          <div className="input-box">
+            <textarea
+              style={{cols:2}}
+              placeholder="describe your product"
+              name="description"
+              onChange={handleChange}
+              required
+              className="input-field"
+              autoComplete="off"
+            ></textarea>
+          </div>
+          <div className="input-box">
+            <input
+              type="text"
+              placeholder="old price"
+              name="old_price"
+              onChange={handleChange}
+              required
+              className="input-field"
+              autoComplete="off"
+            ></input>
+          </div>
+          <div
+            className="input-box"
+          
+          >
+            <input
+              type="text"
+              placeholder="Discounted price"
+              name="new_price"
+              required
+              onChange={handleChange}
+              className="input-field"
+              autoComplete="off"
+            ></input>
+          </div>
+          <div
+            className="input-box"
+          
+          >
+            <input
+              type="text"
+              placeholder="mens /womens /child"
+              name="category"
+              required
+              onChange={handleChange}
+              className="input-field"
+              autoComplete="off"
+            ></input>
+          </div>
+          <div
+            className="input-box"
+            
+          >
+            <input
+              type="file"
+              placeholder="enter-image"
+              name="image"
+              onChange={handleImageChange}
+              className="input-field"
+              autoComplete="off"
+            ></input>
+          </div>
+          
+          <div className="input-submit">
+            <button
+              className="submit-btn"
+              id="submit"
+              onClick={handlesubmit}
+            ></button>
+            <label htmlFor="submit">Create</label>
+          </div>
+          
+        </div>
+      </div>
+      <Toaster/>
+    </div>
+  )
+}
+
+export default ProductCreate
+

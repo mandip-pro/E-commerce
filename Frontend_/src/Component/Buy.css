@@ -1,0 +1,159 @@
+/* Error message styles */
+.error-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  
+  .error-message {
+    background-color: #fef2f2;
+    color: #9b2c2c;
+    padding: 16px 24px;
+    border-radius: 8px;
+  }
+  
+  .error-text {
+    font-size: 1.125rem;
+    font-weight: 600;
+  }
+  
+  .error-link {
+    display: inline-block;
+    background-color: #f97316;
+    color: white;
+    padding: 8px 16px;
+    border-radius: 8px;
+    text-align: center;
+    margin-top: 12px;
+    text-decoration: none;
+  }
+  
+  .error-link:hover {
+    background-color: #fb923c;
+    transition: background-color 0.2s ease;
+  }
+  
+  /* Order Details and Payment Form Styles */
+  .order-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 10rem;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .order-details {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+  
+  .order-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    text-decoration: underline;
+  }
+  
+  .order-price {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1rem;
+  }
+  
+  .price-label {
+    color: #4b5563;
+    font-size: 0.875rem;
+  }
+  
+  .price-value {
+    color: #ef4444;
+    font-weight: 700;
+    font-size: 1.25rem;
+  }
+  
+  /* Payment Form Styles */
+  .payment-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .payment-form {
+    background-color: white;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    padding: 24px;
+    width: 100%;
+    max-width: 400px;
+  }
+  
+  .payment-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 16px;
+  }
+  
+  .card-input {
+    margin-bottom: 24px;
+  }
+  
+  .card-label {
+    display: block;
+    font-size: 0.875rem;
+    color: #374151;
+    margin-bottom: 8px;
+  }
+  
+  .submit-button {
+    width: 100%;
+    background-color: #6366f1;
+    color: white;
+    padding: 12px 16px;
+    border-radius: 8px;
+    font-size: 1rem;
+    margin-top: 10px;
+    transition: background-color 0.2s ease;
+    cursor: pointer;
+  }
+  
+  .submit-button:hover {
+    background-color: #4f46e5;
+  }
+  
+  .submit-button:disabled {
+    background-color: #d1d5db;
+    cursor: not-allowed;
+  }
+  
+  .card-error {
+    color: #9e2146;
+    font-weight: 600;
+    font-size: 0.75rem;
+  }
+  
+  .other-payment-method {
+    width: 100%;
+    background-color: #f97316;
+    color: white;
+    padding: 12px 16px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 16px;
+    font-size: 1rem;
+    transition: background-color 0.2s ease;
+  }
+  
+  .other-payment-method:hover {
+    background-color: #fb923c;
+  }
+  
+  .payment-icon {
+    margin-right: 8px;
+  }
+  
