@@ -94,7 +94,7 @@ class ProductController {
       console.log(err)
       res
         .status(400)
-        .json({ message: "error in course adding to cart", state: false });
+        .json({ message: "error in product adding to cart", state: false });
     }
   }
 
